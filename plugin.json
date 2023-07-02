@@ -1,0 +1,11 @@
+﻿{
+  "Group": "Widgets",
+  "FriendlyName": "StudentInfo",
+  "SystemName": "Widgets.StudentInfo",
+  "Version": "2.50",
+  "SupportedVersions": [ "4.60" ],
+  "Author": "nopCommerce team",
+  "DisplayOrder": 1,
+  "FileName": "Nop.Plugin.Widgets.StudentInfo.dll",
+  "Description": "This is a sample plugin for my project"
+}

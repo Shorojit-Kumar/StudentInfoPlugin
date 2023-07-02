@@ -1,0 +1,67 @@
+@{
+    Layout = "_ConfigurePlugin";
+}
+@model Nop.Plugin.Widgets.StudentInfo.Models.SearchViewModel
+
+<div class="container m-4">
+    <div class="card">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-sm-4">
+                    <h3 class="m-0">Student Information</h3>
+                </div>
+                <div class="col-sm-4">
+
+                    <form asp-controller="Student" asp-action="Index" method="post" autocomplete="off">
+
+                        <div class="input-group">
+                             @Html.TextBoxFor(m => m.Name, new { @class = "form-control", autofocus = "autofocus" })
+                            <div class="input-group-btn">
+                                <button type="submit" class="margin-top-none btn btn-primary">Search</button>
+                            </div>
+                         
+                         </div>
+                        
+                    </form>
+                    
+                </div>
+                <div class="col-sm-4 text-right">
+                    <a class="btn btn-sm btn-success" href="/Admin/Student/AddInformations">Add</a>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Date of Birth</th>
+                            <th>Marital Status</th>
+                            <th>Age</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var student in ViewBag.Students)
+                        {
+                            <tr>
+                                <td>@student.Name</td>
+                                <td>@student.DateOfBirth</td>
+                                <td>@(student.MaritalStatus==true ? "Married":"Single")</td>
+                                <td>@student.Age</td>
+                                <td>
+                                    <div class="row">
+                                        <a class="btn btn-sm btn-info" href="/Admin/Student/EditInformations?Id=@student.Id">Edit</a>
+                                        <a class="btn btn-sm btn-danger" href="/Admin/Student/DeleteInformations?Id=@student.Id">Delete</a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                        <!-- Add more rows for additional student information -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

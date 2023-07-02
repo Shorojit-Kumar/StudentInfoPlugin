@@ -1,0 +1,114 @@
+@model Nop.Plugin.Widgets.StudentInfo.Models.StudentViewModel
+
+@using Nop.Core.Domain.Media
+@using Nop.Web.Framework.Models.DataTables;
+
+@inject MediaSettings _mediaSettings
+
+
+<form asp-controller="Customer" asp-action="List" method="post">
+    <div class="content-header clearfix">
+        <h1 class="float-left">
+            Student Informations
+        </h1>
+        <div class="float-right">
+            <a asp-action="Create" class="btn btn-primary">
+                <i class="fas fa-plus-square"></i>
+                Add
+            </a>
+        </div>
+    </div>
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="form-horizontal">
+                <div class="cards-group">
+                    <div class="card card-default card-search">
+                        <div class="card-body">
+                            <div class="row search-row  >
+                                <div class="search-text">Search</div>
+                                <div class="icon-search"><i class="fas fa-search" aria-hidden="true"></i></div>
+
+                            </div>
+                            <div class="search-body">
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <div class="form-group row">
+                                            <div class="col-md-4">
+                                                <nop-label asp-for="Name" />
+                                            </div>
+                                            <div class="col-md-8">
+                                                <nop-editor asp-for="Name" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <div class="col-md-4">
+                                                <nop-label asp-for="Age" />
+                                            </div>
+                                            <div class="col-md-8">
+                                                <nop-editor asp-for="Age" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <div class="col-md-4">
+                                                <nop-label asp-for="DateOfBirth" />
+                                            </div>
+                                            <div class="col-md-8">
+                                                <nop-editor asp-for="DateOfBirth" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <div class="col-md-4">
+                                                <nop-label asp-for="MaritalStatus" />
+                                            </div>
+                                            <div class="col-md-8">
+                                                <nop-editor asp-for="MaritalStatus" />
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row">
+                                            <div class="text-center col-12">
+                                                <button type="button" id="search-customers" class="btn btn-primary btn-search">
+                                                    <i class="fas fa-search"></i>
+                                                    Search
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card-body">
+                           @* @{
+                                var gridModel = new DataTablesModel
+            {
+                Name = "customers-grid",
+                UrlRead = new DataUrl("CustomerList", "Customer", null),
+                SearchButtonId = "search-customers",
+                Length = Model.PageSize,
+                LengthMenu = Model.AvailablePageSizes,
+                Filters = new List<FilterParameter>{
+                                new FilterParameter(nameof(Model.Name)),
+                                new FilterParameter(nameof(Model.Age)),
+                                new FilterParameter(nameof(Model.DateOfBirth)),
+                                new FilterParameter(nameof(Model.MaritalStatus)),
+
+                                }
+            };
+                            }*@
+
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</form>
