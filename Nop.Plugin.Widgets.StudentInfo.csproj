@@ -11,11 +11,12 @@
   <ItemGroup>
     <None Remove="logo.jpg" />
     <None Remove="plugin.json" />
-    <None Remove="Views\AddOrEditForm.cshtml" />
-    <None Remove="Views\AddOrEditForm1.cshtml" />
-    <None Remove="Views\AddOrEditForm2.cshtml" />
+    <None Remove="Views\Create.cshtml" />
+    <None Remove="Views\Edit.cshtml" />
     <None Remove="Views\Index.cshtml" />
+    <None Remove="Views\List.cshtml" />
     <None Remove="Views\PublicInfo.cshtml" />
+    <None Remove="Views\_ViewImports.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -25,19 +26,24 @@
     <Content Include="plugin.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Views\AddOrEditForm2.cshtml">
+    <Content Include="Views\Edit.cshtml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Views\AddOrEditForm.cshtml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Views\AddOrEditForm1.cshtml">
+    <Content Include="Views\Create.cshtml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Views\Index.cshtml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Views\List.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Views\PublicInfo.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\_ViewImports.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

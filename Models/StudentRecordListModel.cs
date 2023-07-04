@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Nop.Web.Framework.Models;
 
 namespace Nop.Plugin.Widgets.StudentInfo.Models
 {
-    public class SearchViewModel
+    public partial record StudentRecordListModel : BasePagedListModel<StudentRecordModel>
     {
-        public string Name { get; set; }
+      
     }
 }

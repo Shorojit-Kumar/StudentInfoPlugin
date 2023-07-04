@@ -1,0 +1,120 @@
+@using Nop.Core;
+@using Nop.Plugin.Widgets.StudentInfo.Models;
+@using Nop.Web.Areas.Admin.Components;
+@using Nop.Web.Framework.Infrastructure;
+@using Nop.Web.Framework.Models.DataTables;
+@using Nop.Services.Common;
+@using Microsoft.AspNetCore.Html;
+@using Nop.Web.Framework.UI;
+@model Nop.Plugin.Widgets.StudentInfo.Models.StudentRecordModel
+@inject IGenericAttributeService genericAttributeService
+@inject IWorkContext workContext
+@inject INopHtmlHelper NopHtml
+
+
+@{
+    Layout = "_AdminLayout";
+    //page title
+    ViewBag.PageTitle = "Create ";
+    //active menu item (system name)
+    NopHtml.SetActiveMenuItemSystemName("StudentRecord");
+}
+<link rel="stylesheet" href="~/lib_npm/jquery-tageditor/jquery.tag-editor.css" />
+<script src="~/lib_npm/jquery-tageditor/jquery.caret.min.js"></script>
+<script src="~/lib_npm/jquery-tageditor/jquery.tag-editor.min.js"></script>
+
+
+<form asp-controller="StudentRecord" asp-action="Create" method="post">
+    <div class="content-header clearfix">
+
+        <h1 class="float-left">
+            Add
+            <small>
+                <i class="fas fa-arrow-circle-left"></i>
+                <a asp-action="List">Back</a>
+            </small>
+        </h1>
+
+        <div class="float-right">
+            <button type="submit" name="save" class="btn btn-primary">
+                <i class="far fa-save"></i>
+                Save
+            </button>
+            <button type="submit" name="save-continue" class="btn btn-primary">
+                <i class="far fa-save"></i>
+               SaveContinue
+            </button>
+            @await Component.InvokeAsync(typeof(AdminWidgetViewComponent), new { widgetZone = AdminWidgetZones.BlogDetailsButtons, additionalData = Model })
+        </div>
+    </div>
+
+    <div asp-validation-summary="All"></div>
+    <input asp-for="Id" type="hidden" />
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="form-horizontal">
+                <nop-cards id="blog-post-cards">
+     
+                        <div class="card-body">
+                        <div class="col-md-9">
+                            <div class="form-group row">
+                                <div class="col-md-3">
+                                    <nop-label asp-for="Name" />
+                                </div>
+                                <div class="col-md-9">
+                                    <nop-editor asp-for="Name" />
+                                    <span asp-validation-for="Name"></span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-3">
+                                    <nop-label asp-for="Age" />
+                                </div>
+                                <div class="col-md-9">
+                                    <nop-editor asp-for="Age" />
+                                    <span asp-validation-for="Age"></span>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group row">
+                                <div class="col-md-3">
+                                    <nop-label asp-for="DateOfBirth" />
+                                </div>
+                                <div class="col-md-9">
+                                    <nop-editor asp-for="DateOfBirth" />
+                                    <span asp-validation-for="DateOfBirth"></span>
+                                </div>
+
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-3" for="MaritalStatus">Marital Status</label>
+                                <div class="col-md-9">
+                                    <select class="form-control" id="MaritalStatus" name="MaritalStatus">
+                                        <option value="Married">Married</option>
+                                        <option value="Single">Single</option>
+                                    </select>
+                                    <span asp-validation-for="MaritalStatus"></span>
+                                </div>
+                            </div>
+                        </div>
+                   
+
+
+                    @await Component.InvokeAsync(typeof(AdminWidgetViewComponent), new { widgetZone = AdminWidgetZones.BlogPostDetailsBlock, additionalData = Model })
+                </nop-cards>
+            </div>
+        </div>
+    </section>
+
+
+
+
+</form>
+
+<script>
+    $(function () {
+        $("#DateOfBirth").datepicker();
+    });
+</script>
